@@ -1,11 +1,3 @@
-/* ==========================================================
-   GraphScope — script.js (OAUTH REDIRECT IMPLICIT GRANT)
-   Layout update:
-   - Main topbar: Login/Logout + Token typing + Fetch
-   - Sidebar: all other options (Settings/Postman/Clear/Copy/Token modal)
-   - RETAINS ALL FEATURES
-   ========================================================== */
-
 /* ===================== CONFIG ===================== */
 const FB_APP_ID = "907054345326846";
 const GRAPH_BASE = "https://graph.facebook.com";
