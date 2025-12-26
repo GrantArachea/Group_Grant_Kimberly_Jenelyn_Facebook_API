@@ -1,107 +1,101 @@
-# Facebook Graph API Demo (OAuth 2.0)
+# 📘 Facebook Graph API Demo — OAuth 2.0
 
-## Project Overview
+## 📌 Project Overview
 
-This project is a web application that demonstrates the use of the **Facebook Graph API** with **OAuth 2.0 authentication**. It allows users to log in using Facebook, fetch basic profile information, view their profile picture, and check the permissions granted to the application.
+This project is a frontend web application that demonstrates how to integrate the **Facebook Graph API** using **OAuth 2.0 authentication**.
 
-Data is requested using **JavaScript’s Fetch API** and displayed both visually and as raw JSON to make the API responses easier to understand and debug.
+Users authenticate using their own Facebook accounts. After successful login, the application fetches and displays:
 
-## Technologies Used
+- Basic profile information
+- Profile picture
+- Granted permissions (OAuth scopes)
+- Raw JSON API responses for debugging and demonstration
 
-* HTML
-* CSS
-* JavaScript (Vanilla JS)
-* Fetch API
-* Facebook Graph API (v24.0)
-* OAuth 2.0
-* GitHub
+The project follows OAuth 2.0 best practices, avoids committing sensitive tokens, and complies with the **Advanced API Group Project requirements**.
 
-## API Information
+---
+
+## 🎯 Project Objectives
+
+- Demonstrate OAuth 2.0 authentication using Facebook Login
+- Use real access tokens (no mock data)
+- Fetch and display data using JavaScript Fetch API
+- Implement error handling, loading states, and input validation
+- Demonstrate API testing using Postman
+- Follow proper GitHub collaboration workflow
+- Use HTTPS for OAuth via Cloudflare Tunnel
+
+---
+
+## 🧰 Technologies Used
+
+- HTML5  
+- CSS3  
+- JavaScript (Vanilla)  
+- Fetch API  
+- Facebook Graph API (v24.0)  
+- OAuth 2.0  
+- Cloudflare Tunnel (HTTPS for local development)  
+- GitHub  
+
+---
+
+## 🌐 API Information
 
 ### Base URL
-
-```
 https://graph.facebook.com/v24.0
-```
+
+
+---
 
 ### Endpoints Used
 
-| Endpoint          | Method | Description                    |
-| ----------------- | ------ | ------------------------------ |
-| `/me`             | GET    | Fetch user profile information |
-| `/me/picture`     | GET    | Fetch profile picture          |
-| `/me/permissions` | GET    | Fetch granted permissions      |
+| Endpoint | Method | Description |
+|--------|--------|-------------|
+| `/me` | GET | Retrieves basic user profile information |
+| `/me/picture` | GET | Retrieves the user’s profile picture |
+| `/me/permissions` | GET | Retrieves OAuth permissions granted to the app |
+
+---
 
 ### Required Parameters
 
-* `access_token` – OAuth access token
-* `fields` – Requested user data (id, name, email)
-* `type` – Profile picture size
-* `redirect` – Set to `0` to return JSON
+- `access_token` – OAuth 2.0 User Access Token  
+- `fields` – Requested user fields (e.g. `id,name,email`)  
+- `type` – Profile picture size (`large`, `normal`, `small`, `square`)  
+- `redirect=0` – Returns JSON instead of redirecting to image  
 
-## Authentication
+---
 
-* OAuth 2.0
-* Facebook Login (redirect-based, no SDK)
-⚠️ Facebook login does not work using `file://`. A local or hosted server is required.
+## 🔐 Authentication
 
-## Sample Fetch Request
+- OAuth 2.0 (Facebook Login)
+- Redirect-based OAuth (no backend server)
+- Tokens are generated securely by Facebook and used only in memory
 
-```javascript
-fetch("https://graph.facebook.com/v24.0/me?fields=id,name&access_token=YOUR_ACCESS_TOKEN")
-  .then(response => response.json())
-  .then(data => console.log(data));
-```
+⚠️ Facebook Login does NOT work using `file://`.  
+A local or hosted HTTP/HTTPS server is required.
 
-## How to Run the Project
+---
 
-### Option 1: Live Server (Recommended)
+## 🔒 HTTPS & Cloudflare Tunnel (IMPORTANT)
 
-1. Open the project folder in Visual Studio Code
-2. Install the **Live Server** extension
-3. Right-click `index.html` and select **Open with Live Server**
+Facebook requires **HTTPS** for OAuth.  
+To securely expose the local project, **Cloudflare Tunnel (Quick Tunnel)** is used.
 
-### Option 2: Python Local Server
+### Why Cloudflare?
+- Free
+- No account login required
+- Instant HTTPS
+- Accepted by Facebook OAuth
 
-```bash
-python -m http.server 5500
-```
+---
 
-Open in browser:
+### Running Cloudflare Tunnel
 
-```
-http://localhost:5500
-```
+Ensure your local server is running on port `5500`, then run:
 
-## How to Use the Application
+```powershell
+cloudflared tunnel --url http://127.0.0.1:5500
 
-1. Click **Login** to authenticate using Facebook
-2. Allow the requested permissions
-3. Click **Fetch**
-4. View:
 
-   * Profile information
-   * Profile picture
-   * Granted permissions
-   * Raw JSON response
-
-## Important Notes
-
-* Never commit real access tokens
-* Always use placeholders such as:
-
-```
-YOUR_ACCESS_TOKEN_HERE
-```
-
-* OAuth authentication requires a local or hosted server
-
-## GitHub Collaboration
-
-This project follows standard GitHub collaboration practices:
-
-* One shared repository
-* Each member worked on their own branch
-* Meaningful commits were made
-* Pull Requests were used for merging
-* Temporary branches were deleted after completion
