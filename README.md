@@ -1,6 +1,6 @@
-# 📘 Facebook Graph API Demo — OAuth 2.0
+#  Facebook Graph API Demo — OAuth 2.0
 
-## 📌 Project Overview
+##  Project Overview
 
 This project is a frontend web application that demonstrates how to integrate the **Facebook Graph API** using **OAuth 2.0 authentication**.
 
@@ -15,7 +15,7 @@ The project follows OAuth 2.0 best practices, avoids committing sensitive tokens
 
 ---
 
-## 🎯 Project Objectives
+##  Project Objectives
 
 - Demonstrate OAuth 2.0 authentication using Facebook Login
 - Use real access tokens (no mock data)
@@ -27,7 +27,7 @@ The project follows OAuth 2.0 best practices, avoids committing sensitive tokens
 
 ---
 
-## 🧰 Technologies Used
+##  Technologies Used
 
 - HTML5  
 - CSS3  
@@ -40,7 +40,7 @@ The project follows OAuth 2.0 best practices, avoids committing sensitive tokens
 
 ---
 
-## 🌐 API Information
+##  API Information
 
 ### Base URL
 https://graph.facebook.com/v24.0
@@ -67,18 +67,18 @@ https://graph.facebook.com/v24.0
 
 ---
 
-## 🔐 Authentication
+##  Authentication
 
 - OAuth 2.0 (Facebook Login)
 - Redirect-based OAuth (no backend server)
 - Tokens are generated securely by Facebook and used only in memory
 
-⚠️ Facebook Login does NOT work using `file://`.  
+ Facebook Login does NOT work using `file://`.  
 A local or hosted HTTP/HTTPS server is required.
 
 ---
 
-## 🔒 HTTPS & Cloudflare Tunnel (IMPORTANT)
+##  HTTPS & Cloudflare Tunnel (IMPORTANT)
 
 Facebook requires **HTTPS** for OAuth.  
 To securely expose the local project, **Cloudflare Tunnel (Quick Tunnel)** is used.
@@ -100,7 +100,7 @@ cloudflared tunnel --url http://127.0.0.1:5500
 
 ```
 
-## 🔒 HTTPS via Cloudflare Tunnel
+##  HTTPS via Cloudflare Tunnel
 
 Cloudflare generates a **temporary HTTPS URL** for local development, such as:
 
@@ -109,14 +109,14 @@ https://counting-where-patients-fares.trycloudflare.com/
 ```
 
 
-⚠️ **This URL changes every time the tunnel restarts.**  
+ **This URL changes every time the tunnel restarts.**  
 This is expected behavior and is acceptable for development and demo purposes.
 
 ---
 
-## ⚙️ Meta (Facebook Developer) Setup
+##  Meta (Facebook Developer) Setup
 
-### 1️⃣ App Domains
+###  App Domains
 **Location:**  
 App Settings → Basic
 
@@ -126,7 +126,7 @@ example_domain_name_from_cloudflare.com
 
 ---
 
-### 2️⃣ Website Platform
+###  Website Platform
 **Location:**  
 App Settings → Basic → Add Platform → Website
 
@@ -136,7 +136,7 @@ example_domain_name_from_cloudflare.com
 
 ---
 
-### 3️⃣ Valid OAuth Redirect URIs
+###  Valid OAuth Redirect URIs
 **Location:**  
 usecase customize → Settings
 
@@ -144,11 +144,11 @@ usecase customize → Settings
 example_domain_name_from_cloudflare.com
 ```
 
-⚠️ Must match **exactly**, including the trailing slash.
+Must match **exactly**, including the trailing slash.
 
 ---
 
-## 👥 App Roles (Testers, Developers, Admins)
+##  App Roles (Testers, Developers, Admins)
 
 Since the application runs in **Development Mode**, only assigned users can log in.
 
@@ -162,7 +162,7 @@ After accepting, testers can log in using their **own Facebook accounts**.
 
 ---
 
-## 🔑 Who Logs In When Clicking “Login with Facebook”?
+##  Who Logs In When Clicking “Login with Facebook”?
 
 - Facebook authenticates the account currently logged into the browser
 - The application does **not** force a specific account
@@ -170,7 +170,7 @@ After accepting, testers can log in using their **own Facebook accounts**.
 
 ---
 
-## 🧪 API Testing Using Postman (MANDATORY)
+##  API Testing Using Postman (MANDATORY)
 
 All endpoints were tested using **Postman** before frontend integration:
 
@@ -186,7 +186,7 @@ Postman testing is demonstrated in the demo video.
 
 ---
 
-## 🧑‍💻 Sample Fetch Request
+##  Sample Fetch Request
 
 ```javascript
 fetch("https://graph.facebook.com/v24.0/me?fields=id,name&access_token=YOUR_ACCESS_TOKEN")
