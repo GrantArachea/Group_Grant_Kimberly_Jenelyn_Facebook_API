@@ -105,7 +105,7 @@ cloudflared tunnel --url http://127.0.0.1:5500
 Cloudflare generates a **temporary HTTPS URL** for local development, such as:
 
 ```powershell
-https://counting-where-patients-fares.trycloudflare.com/
+https://example_domain_name_from_cloudflare.com/
 ```
 
 
