@@ -98,4 +98,102 @@ Ensure your local server is running on port `5500`, then run:
 ```powershell
 cloudflared tunnel --url http://127.0.0.1:5500
 
+```
+
+## 🔒 HTTPS via Cloudflare Tunnel
+
+Cloudflare generates a **temporary HTTPS URL** for local development, such as:
+
+```powershell
+https://counting-where-patients-fares.trycloudflare.com/
+```
+
+
+⚠️ **This URL changes every time the tunnel restarts.**  
+This is expected behavior and is acceptable for development and demo purposes.
+
+---
+
+## ⚙️ Meta (Facebook Developer) Setup
+
+### 1️⃣ App Domains
+**Location:**  
+App Settings → Basic
+
+```
+example_domain_name_from_cloudflare.com
+```
+
+---
+
+### 2️⃣ Website Platform
+**Location:**  
+App Settings → Basic → Add Platform → Website
+
+```
+example_domain_name_from_cloudflare.com
+```
+
+---
+
+### 3️⃣ Valid OAuth Redirect URIs
+**Location:**  
+usecase customize → Settings
+
+```
+example_domain_name_from_cloudflare.com
+```
+
+⚠️ Must match **exactly**, including the trailing slash.
+
+---
+
+## 👥 App Roles (Testers, Developers, Admins)
+
+Since the application runs in **Development Mode**, only assigned users can log in.
+
+### Adding Testers
+1. Go to:  
+   `Roles → Test Users`
+2. Add testers using their Facebook email address
+3. Testers must **accept the invitation**
+
+After accepting, testers can log in using their **own Facebook accounts**.
+
+---
+
+## 🔑 Who Logs In When Clicking “Login with Facebook”?
+
+- Facebook authenticates the account currently logged into the browser
+- The application does **not** force a specific account
+- Use **Incognito / Private Window** to test different users
+
+---
+
+## 🧪 API Testing Using Postman (MANDATORY)
+
+All endpoints were tested using **Postman** before frontend integration:
+
+- Authentication using access token
+- Valid API requests
+- Error responses:
+  - 401 Unauthorized
+  - 403 Forbidden
+  - 404 Not Found
+  - 429 Too Many Requests
+
+Postman testing is demonstrated in the demo video.
+
+---
+
+## 🧑‍💻 Sample Fetch Request
+
+```javascript
+fetch("https://graph.facebook.com/v24.0/me?fields=id,name&access_token=YOUR_ACCESS_TOKEN")
+  .then(res => res.json())
+  .then(data => console.log(data));
+```
+
+
+
 
